@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: loan_postgres
+    environment:
+      POSTGRES_USER: loan_user
+      POSTGRES_PASSWORD: loan_pass
+      POSTGRES_DB: loan_dw
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d
+
+volumes:
+  pgdata:
