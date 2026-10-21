@@ -23,8 +23,9 @@ Python, PostgreSQL 16, Docker Compose, psycopg2, pandas
 
 1. Salin `.env.example` menjadi `.env`, lalu isi nilainya.
 2. Jalankan database: `docker compose up -d`
-3. Install library: `pip install -r requirements.txt`
-4. Jalankan pipeline: `python etl/run_pipeline.py`
+3. Jalankan pipeline di dalam container: `docker compose run --rm etl`
+
+Untuk membuka notebook eksplorasi data (opsional): buat virtual environment, lalu `pip install -r requirements-dev.txt`.
 
 ## Keputusan Desain
 

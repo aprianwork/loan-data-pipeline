@@ -1,4 +1,2 @@
 psycopg2-binary==2.9.13
-pandas==3.0.6
-ipykernel==7.4.0
-python-dotenv
+python-dotenv==1.2.4
