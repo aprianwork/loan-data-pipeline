@@ -15,15 +15,23 @@ CSV  ->  apridwh_stg (staging)  ->  apridwh (warehouse)  ->  v_loan_applications
 | Master | `apridwh.mst_code_labels` | Tabel master: kode angka menjadi label |
 | View | `apridwh.v_loan_applications` | Data warehouse dengan kode sudah jadi label |
 
+## Dashboard
+
+Dashboard Metabase di atas view `v_loan_applications`:
+
+![Loan Portfolio Overview](docs/dashboard.png)
+
 ## Teknologi
 
-Python, PostgreSQL 16, Docker Compose, psycopg2, pandas
+Python, PostgreSQL 16, Docker Compose, psycopg2, pandas, Metabase
 
 ## Cara Menjalankan
 
 1. Salin `.env.example` menjadi `.env`, lalu isi nilainya.
 2. Jalankan database: `docker compose up -d`
 3. Jalankan pipeline di dalam container: `docker compose run --rm etl`
+4. (Opsional) Jalankan dashboard: `docker compose --profile dashboard up -d`, lalu buka http://localhost:3000.
+   Saat menyambungkan database di Metabase, pakai host `postgres` dan port `5432`.
 
 Untuk membuka notebook eksplorasi data (opsional): buat virtual environment, lalu `pip install -r requirements-dev.txt`.
 
